@@ -152,7 +152,7 @@ header{
 }
 
 header img{
-    width: clamp(120px, 30vw, 300px);
+    width: clamp(120px, 30vw, 200px);
 }
 
 i.highlight-class{
