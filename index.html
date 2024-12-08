@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apresentação Rank.it</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Apresentação - Rank.it</title>
+
+        <!-- Importing Stylesheets -->
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <header><img src="./logo.png" alt="logo"></header>
+        <h1>Apresentação - Rank.it</h1>
+        <p>A todos os envolvidos no desenvolvimento direto ou indireto do Rank.it, nosso muito obrigado por fazer parte dessa jornada.</p>
+        <main>
+            <h2 id="POO">Conteúdos de POO</h2>
+
+            <h3 id="POO-M0">M0 ao M3 - Módulos introdutórios ✅</h3> 
+
+            <p>Os módulos introdutórios não serão contemplados individualmente aqui pois tratam de conceitos intrínsecamente conectados com todos os conceitos que serão mostrados a seguir, portanto seria redundante tentar demonstrar eles de forma isolada. Entretanto, como foi dito, você pode observar implementações deles em código nos exemplos a seguir.</p>
+
+            <h3 id="POO-M4">M4 - SOLID (S) ✅</h3>
+
+            <p>Para exemplificar o princípio da responsabilidade única, escolhemos a classe Database que possuí métodos extremamente específicos, tentando limitar sua implementação ao máximo para que ele faça restritamente o que se propõe a fazer.</p>
+
+            <p>Observe um trecho do código da classe <i class="highlight-class">Database</i> abaixo:</p>
+
+            <img src="./solid s.png" alt="">
+
+            <h3 id="POO-M5">M5 - Variações de atributos e métodos ✅</h3>
+
+            <p>Para exemplificar as variações de métodos, escolhemos a classe <i class="highlight-class">Database</i>, pois ela é um forte exemplo do uso de métodos estáticos, uma vez que não precisamos inicializar uma instância dela para usar seus métodos. Nos outros exemplos que usam a classe <i class="highlight-class">Database</i> você poderá observar que todos os seus métodos são estáticos.</p>
+
+            <h3 id="POO-M6">M6 - Associação de classes ✅</h3>
+
+            <p>Para demonstrar a associação de classes podemos usar o mesmo exemplo do módulo anterior, porém agora com um foco maior nos parâmetros e implementação dos métodos. Observe que o método estático responsável por armazenar um usuário/obra/review no banco de dados já "confia" que ele receberá um objeto que tenha o método <i class="highlight-method">.toDict()</i></p>
+
+            <img src="./associacao.png" alt="">
+
+            <h3 id="POO-M7">M7 - SOLID (O) ✅</h3>
+
+            <p>Talvez nenhum princípio do SOLID se destaque tanto quanto o Open-Closed Principle no nosso projeto. A proposta do projeto está intrínsecamente associada ao conceito de facilitar a expansão futura do projeto.</p>
+
+            <p>Logo abaixo temos um método da classe <i class="highlight-class">Database</i> que faz uma busca por uma obra específica e retorna ela de modo estruturado para que possa ser devidamente renderizado na página da obra.</p>
+
+            <img src="./open closed.png" alt="">
+
+            <p>Note que eu disse explicitamente que os dados voltam de forma estruturada, isso significa que não importa o tipo de mídia que for inserido aqui, ela deve retornar sempre no mesmo "padrão".</p>
+
+            <h4>Pra que?</h4>
+
+            <p>Para responder essa pergunta eu vou contar sobre um acontecimento que aconteceu durante a implementação de uma das funcionalidades da aplicação, a integração com a API de jogos.</p>
+
+            <p>Quando a integração com a API de jogos foi feita, na hora de fazer a conexão disso com o método do banco que retorna os dados de modo padronizado, foi criada a classe para estruturar os dados que viriam dessa nova API. Depois de feita essa padronização dos dados, a página da obra foi renderizada corretamente. Não foi preciso alterar <b>uma linha sequer</b> do restante do código para fazer com que a aplicação aceitasse jogos nas avaliações.</p>
+
+            <h3 id="POO-M8">M8 e M9 - Injeção de dependência e Associação bilateral ❓</h3>
+
+            <p>Injeção de dependência é um conceito indispensável para esse projeto, porém o uso dele a nível de código em uma injeção literal de dependência ou associação bilateral entre classes/objetos não fazia sentido.</p>
+
+            <h4>Mas por quê?</h4>
+            <p>Como estamos trabalhando com banco de dados, apesar de criarmos uma classe "usuário" (<i class="highlight-class">User</i>) e uma classe "review" (<i class="highlight-class">Review</i>), que tem essa relação de existência dependente entre si (uma review não existe sem um usuário), quando a review é criada o usuário já está no banco de dados. Isso implica que ele já foi convertido em um dicionário para ser armazenado no banco, ou seja, ele não existe como uma instância de classe.</p>
+
+            <p>Também ocorre algo similar com a associação bilateral. Da forma que foi organizado os dados, um usuário do banco sabe as obras que ele viu, da mesma forma que a mesma obra sabe quem viu ela.</p>
+            
+            <h3 id="POO-M10">M10 e M12 - Herança e Polimorfismo ✅</h3>
+            <p>O polimorfismo (apesar de nem sempre ser recomendado), nos ajudou a ter um comportamento para obras que já tinham um formatador pronto e outro separado para as que ainda não tinham não precisarem ficar obsoletas.</p>
+            
+            <p>Logo abaixo tem um exemplo da classe mãe (com um método <i class="highlight-class">.build()</i> genérico)</p>
+            
+            <img src="./polimorfismo.png" alt="">
+            
+            <p>E aqui esse método sendo sobrescrito por outra classe que já sabe o tipo de mídia que vai receber, portando ele só pede o dicionário direto sem precisar receber vários parâmetros.</p>
+            
+            <img src="./polimorfismo usage.png" alt="">
+            
+            <h3 id="POO-M11">M11 - SOLID (L) ❌</h3>
+            <p>Durante o desenvolvimento do projeto, não notamos muita necessidade em fazer uso de herança para implementar a lógica necessária até então. E considerando que o único uso de herança que precisamos fazer foi para as classes formatadoras de dados de obra (no tópico anterior - <a href="#POO-M10">M10 e M12</a>) e elas usam de polimorfismo, não podemos observar um uso orgânico de do princípio de Liskov no projeto até então.</p>
+
+            <h3 id="POO-M13">M13 - Classes abstratas ✅</h3>
+            <p>As classes abstratas foram essenciais para definir um padrão importante em classes como <i class="highlight-class">User</i>, <i class="highlight-class">Media</i> e <i class="highlight-class">Review</i>, que deveriam conseguir retornar um dicionário que a representasse, para que pudesse ser armazenado no banco de dados.</p>
+
+            <img src="./abstract.png" alt="">
+
+            Logo abaixo tem um exemplo uso da classe abstrata na classe <i class="highlight-class">Review</i> (Escolhemos essa pois é a menor e mais fácil de exibir aqui sem muita poluição visual 😅)
+
+            <img src="./abstract usage.png" alt="">
+
+            <h3 id="POO-M14">M14 e M15 - Interfaces e SOLID (I) ✅</h3>
+            <p>Foi criado um contrato (interface) para a classe <i class="highlight-class">Database</i> que usaríamos no projeto, facilitando o processo de uma futura troca de banco de dados se fosse necessário.</p>
+            <p>SOLID (I) (Interface Segregation Principle) foi usado para realizar contratos menos genéricos com a classe <i class="highlight-class">Database</i>, dividindo quais seriam as responsabilidades e métodos de cada contrato.</p>
+            <img src="./solid i ray.so.png" alt="">
+            <p>Depois de criadas as interfaces, elas foram usadas com o uso do método <i class="highlight-class">.register()</i></p>
+            <img src="./solid i usage.py.png" alt="">
+
+            <h3 id="POO-M16">M16 - SOLID (D) ✅</h3>
+
+            <p>Para demonstrar o princípio da Inversão de Dependência do SOLID, escolhemos mais uma vez a classe <i class="highlight-class">Database</i>, porém dessa vez revelando um detalhe de implementação que estava oculto nos outros exemplos da mesma classe, que é o uso da classe abstrata como tipo esperado a ser recebido do método de inserção no banco de dados.</p>
+
+            <img src="./solid d.png" alt="">
+
+            <h3 id="POO-M17">M17 - Agregação de classes ✅</h3>
+            <p>Para demonstrar o conceito da agregação de classes, escolhemos a classe <i class="highlight-class">LoginManager</i>, que tem a responsabilidade de validar logins e armazenar os logins ativos em cache. Esta segunda responsabilidade é feita através de um atributo da instância de <i class="highlight-class">LoginManager</i> que é um dicionário cuja chave é um id de usuário e o valor é um objeto da classe <i class="highlight-class">LoginCache</i>, que contém os dados dos logins ativos salvos em cache por questões de otimização.</p>
+
+            <img src="./agregacao.png" alt="">
+
+            <h3 id="POO-M18">M18 - Composição de classes ❌</h3>
+
+            <p>Durante o desenvolvimento do projeto não foi usado composição de classes. Porém, nesse conceito específico, isso seria um conceito bem vindo na classe <i class="highlight-class">LoginManager</i>. E o motivo disso é que ela tem duas responsabilidades, como eu havia mencionado anteriormente, que é validar as tentativas de login e manusear o cache dos logins ativos. Portanto, seria possível através da composição de classes, tornar a classe <i class="highlight-class">LoginManager</i> composta de outras duas classes, onde cada uma tem apenas uma dessas responsabilidades.</p>
+
+            <p>Porém, como eu disse, até o atual momento do projeto, não foi implementado dessa forma, por isso o conceito está marcado com um ❌.</p>
+
+            <h2>Visão geral</h2>
+            <span>✅ M0 - Apresentação e ambiente</span>
+            <span>✅ M1 - Resumo do Python</span>
+            <span>✅ M2 - Introdução à POO</span>
+            <span>✅ M3 - Classes e objetos</span>
+            <span>✅ M4 - SOLID (S)</span>
+            <span>✅ M5 - Variações de atributos e métodos</span>
+            <span>✅ M6 - Associação de classes</span>
+            <span>✅ M7 - SOLID (O)</span>
+            <span>❓ M8 - Injeção de dependência</span>
+            <span>❓ M9 - Associação bilateral</span>
+            <span>✅ M10 - Herança</span>
+            <span>❌ M11 - SOLID (L)</span>
+            <span>✅ M12 - Polimorfismo</span>
+            <span>✅ M13 - Classes abstratas</span>
+            <span>✅ M14 e M15 - Interfaces e SOLID (I)</span>
+            <span>✅ M16 - SOLID (D) </span>
+            <span>✅ M17 - Agregação de classes</span>
+            <span>❌ M18 - Composição de classes</span>
+        </main>
+    </body>
+</html>
