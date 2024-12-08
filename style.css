@@ -169,6 +169,35 @@ i.highlight-method{
     border-radius: 5px;
 }
 
+.index{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--default-grey-bg-light);
+    border-radius: 10px;
+}
+
+.index a{
+    margin: 5px 0;
+}
+
+.index a{
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 100ms ease;
+}
+
+.index a:hover{
+    cursor: pointer;
+    background-color: rgba(150, 150, 150, 0.3);
+    
+}
+
+h2.thanks{
+    border:none;
+    text-align: center;
+}
+
 
 @media screen and (max-width: 960px){
     body{
