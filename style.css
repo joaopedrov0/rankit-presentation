@@ -198,6 +198,69 @@ h2.thanks{
     text-align: center;
 }
 
+h2.thanks:hover{
+    cursor: pointer;
+}
+
+.qrcode{
+    max-width: 500px;
+    width: 100%;
+}
+
+
+
+.eye{
+	background-color: transparent;
+	width: 100px;
+	height: 100px;
+    position: relative;
+}
+
+.eye:hover{
+    cursor: pointer;
+}
+
+.eye::before{
+    content: '?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 2rem;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.eye span{
+	background-image: #fff;
+	border: solid 1px white;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	
+	animation-name: loader;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+}
+
+.secret{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+@keyframes loader{
+	0% {
+		transform: rotateZ(0deg);
+	}
+	50% {
+		transform: rotateZ(calc(var(--i) * 36deg));
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
 
 @media screen and (max-width: 960px){
     body{
