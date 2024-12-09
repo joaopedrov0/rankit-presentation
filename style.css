@@ -207,7 +207,9 @@ h2.thanks:hover{
     width: 100%;
 }
 
-
+.eye, .secret, .thanks{
+    user-select: none;
+}
 
 .eye{
 	background-color: transparent;
