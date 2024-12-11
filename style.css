@@ -254,11 +254,11 @@ h2.thanks:hover{
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     opacity: 1;
     align-items: center;
 
-    transition: opacity 1s ease 400ms;
+    transition: opacity 3s ease 400ms;
 }
 
 .easteregg-hidden{
