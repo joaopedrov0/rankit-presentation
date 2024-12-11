@@ -249,7 +249,25 @@ h2.thanks:hover{
 .secret{
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    align-items: center;
+
+    transition: opacity 1s ease 400ms;
+}
+
+.easteregg-hidden{
+    display: none;
+}
+
+.secret.secret-hidden{
+    transform: translateX(100%);
+    opacity: 0;
 }
 
 @keyframes loader{
