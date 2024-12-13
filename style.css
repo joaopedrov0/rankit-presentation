@@ -270,6 +270,15 @@ h2.thanks:hover{
     opacity: 0;
 }
 
+.returnAnchor{
+    display: flex;
+    margin: 15px 0;
+    padding: 15px;
+    width: fit-content;
+    background-color: var(--default-grey-bg-dark);
+    border-radius: 10px;
+}
+
 @keyframes loader{
 	0% {
 		transform: rotateZ(0deg);
